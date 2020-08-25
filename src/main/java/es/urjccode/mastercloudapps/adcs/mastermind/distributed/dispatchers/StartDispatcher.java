@@ -1,0 +1,16 @@
+package es.urjccode.mastercloudapps.adcs.mastermind.distributed.dispatchers;
+
+import es.urjccode.mastercloudapps.adcs.mastermind.controllers.implementation.StartControllerImplementation;
+
+public class StartDispatcher extends Dispatcher {
+
+	public StartDispatcher(StartControllerImplementation startControllerImplementation) {
+		super(startControllerImplementation);
+	}
+
+	@Override
+	public void dispatch() {
+		((StartControllerImplementation) this.acceptorController).start();
+	}
+
+}
