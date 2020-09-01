@@ -1,12 +1,13 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.menus;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.PlayController;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.models.MessageView;
 
 class RedoCommand extends Command{
 	
-	RedoCommand(PlayController playController) {
-		super(MessageView.REDO_COMMAND.getMessage(), playController);
+	RedoCommand(AceptorController aceptorController) {
+		super(MessageView.REDO_COMMAND.getMessage(), aceptorController);
 	}
 
 	@Override

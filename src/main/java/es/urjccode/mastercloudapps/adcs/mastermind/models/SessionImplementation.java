@@ -2,23 +2,16 @@ package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
 import java.util.List;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Registry;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.StateValue;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
-public class SessionImplementation implements Session {
-	
-	private State state;
+public class SessionImplementation extends Session {
 
-	private Game game;
 
-	private Registry registry;
-
-	private String name;
-
-	public SessionImplementation() {
-		this.state = new State();
-		this.game = new Game();
-		this.registry = new Registry(this.game);
-		this.name = null;
+	public SessionImplementation(GameImplementation game) {
+		super(game);
 	}
 
 	public void next() {
@@ -26,7 +19,7 @@ public class SessionImplementation implements Session {
 	}
 
 	public void addProposedCombination(List<Color> colors) {
-		this.game.addProposedCombination(colors);
+		((GameImplementation)this.game).addProposedCombination(colors);
 		this.registry.registry();
 	}
 
@@ -47,17 +40,17 @@ public class SessionImplementation implements Session {
 	}
 
 	public void isNewGame() {
-		this.game.clear();
+		((GameImplementation)this.game).clear();
 		this.state.reset();
 		this.registry.reset();
 		this.name = null;
 	}
 
 	public void clearGame() {
-		this.game = new Game();		
+		this.game = new GameImplementation();
 	}
 
-	public void registry() {
+	public void registry()  {
 		this.registry = new Registry(this.game);
 	}
 
@@ -70,35 +63,35 @@ public class SessionImplementation implements Session {
 	}
 
 	public boolean isWinner() {
-		return this.game.isWinner();
+		return ((GameImplementation)this.game).isWinner();
 	}
 
 	public boolean isLooser() {
-		return this.game.isLooser();
+		return ((GameImplementation)this.game).isLooser();
 	}
 
 	public List<Color> getColors(int i) {
-		return this.game.getColors(i);
+		return ((GameImplementation)this.game).getColors(i);
 	}
 
 	public int getAttempts() {
-		return this.game.getAttempts();
+		return ((GameImplementation)this.game).getAttempts();
 	}
 
 	public int getBlacks(int i) {
-		return this.game.getBlacks(i);
+		return ((GameImplementation)this.game).getBlacks(i);
 	}
 
 	public int getWhites(int i) {
-		return this.game.getWhites(i);
+		return ((GameImplementation)this.game).getWhites(i);
 	}
 
 	public boolean hasName() {
 		return this.name != null;
 	}
 
-	public Game getGame() {
-		return this.game;
+	public GameImplementation getGame() {
+		return ((GameImplementation)this.game);
 	}
 
 	@Override
@@ -111,9 +104,8 @@ public class SessionImplementation implements Session {
 		return this.name;
 	}
 
-	@Override
 	public int getWidth() {
-		return this.game.getWidth();
+		return ((GameImplementation)this.game).getWidth();
 	}
 
 	@Override

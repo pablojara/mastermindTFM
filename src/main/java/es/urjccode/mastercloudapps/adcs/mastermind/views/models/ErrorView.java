@@ -1,9 +1,11 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.models;
 
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
-import es.urjccode.mastercloudapps.adcs.mastermind.utils.WithConsoleView;
+import es.urjccode.mastercloudapps.adcs.mastermind.utils.Console;
 
-public class ErrorView extends WithConsoleView{
+public class ErrorView {
+
+	private Console console;
 
 	static final String[] MESSAGES = { 
 		"Repeated colors",
@@ -14,6 +16,7 @@ public class ErrorView extends WithConsoleView{
 
 	public ErrorView(Error error) {
 		this.error = error;
+		this.console = new Console();
 	}
 	
 	public void writeln() {

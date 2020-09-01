@@ -1,6 +1,7 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.controllers;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerVisitor;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
 
 public abstract class StartController extends GameController {
 
@@ -15,7 +16,7 @@ public abstract class StartController extends GameController {
 	public abstract String[] getGamesNames();
 
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
+	public void accept(ControllerVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
 

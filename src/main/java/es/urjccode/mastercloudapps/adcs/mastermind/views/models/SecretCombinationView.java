@@ -1,18 +1,18 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.models;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.Controller;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Controller;
+import es.urjccode.mastercloudapps.adcs.mastermind.controllers.GameController;
 
 class SecretCombinationView {
-	
-	private Controller controller;
-	
-	SecretCombinationView(Controller controller) {
-		super();
-		this.controller = controller;
+
+	private GameController gameController;
+
+	public SecretCombinationView(GameController gameController) {
+		this.gameController = gameController;
 	}
 	
 	void writeln() {
-		for (int i = 0; i < this.controller.getWidth(); i++) {
+		for (int i = 0; i < this.gameController.getWidth(); i++) {
 			MessageView.SECRET.write();
 		}
 		MessageView.NEW_LINE.writeln();

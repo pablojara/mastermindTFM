@@ -1,6 +1,8 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.utils;
 
-public class YesNoDialog  extends WithConsoleView {
+public class YesNoDialog {
+
+	private Console console;
 
 	private static final char AFIRMATIVE = 'y';
 
@@ -10,6 +12,10 @@ public class YesNoDialog  extends WithConsoleView {
 
 	private static final String MESSAGE = "The value must be '" + YesNoDialog.AFIRMATIVE + "' or '"
 			+ YesNoDialog.NEGATIVE + "'";
+
+	public YesNoDialog(){
+		this.console = new Console();
+	}
 
 	public boolean read(String title) {
 		assert title != null;

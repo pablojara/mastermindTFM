@@ -2,7 +2,8 @@ package es.urjccode.mastercloudapps.adcs.mastermind.controllers;
 
 import java.util.List;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerVisitor;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
 
@@ -38,7 +39,7 @@ public abstract class PlayController extends GameController {
 	public abstract int getAttempts();
 
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
+	public void accept(ControllerVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
 

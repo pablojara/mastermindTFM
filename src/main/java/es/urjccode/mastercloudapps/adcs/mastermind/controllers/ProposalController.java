@@ -2,8 +2,9 @@ package es.urjccode.mastercloudapps.adcs.mastermind.controllers;
 
 import java.util.List;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Controller;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
 import es.urjccode.mastercloudapps.adcs.mastermind.models.Combination;
-import es.urjccode.mastercloudapps.adcs.mastermind.models.Session;
 import es.urjccode.mastercloudapps.adcs.mastermind.models.SessionImplementation;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;

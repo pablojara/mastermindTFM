@@ -1,6 +1,8 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.utils;
 
-public abstract class Command extends WithConsoleView {
+public abstract class Command {
+
+	private Console console;
 
 	protected String title;
 	

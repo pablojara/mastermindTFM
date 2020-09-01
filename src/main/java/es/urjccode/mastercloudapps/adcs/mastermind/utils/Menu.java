@@ -2,7 +2,9 @@ package es.urjccode.mastercloudapps.adcs.mastermind.utils;
 
 import java.util.ArrayList;
 
-public abstract class Menu extends WithConsoleView {
+public abstract class Menu {
+
+	private Console console;
 
 	private static final String OPTION = "----- Choose one option -----";
 	
@@ -10,6 +12,7 @@ public abstract class Menu extends WithConsoleView {
 
 	public Menu() {
 		this.commandList = new ArrayList<Command>();
+		this.console = new Console();
 	}
 
 	public void execute() {

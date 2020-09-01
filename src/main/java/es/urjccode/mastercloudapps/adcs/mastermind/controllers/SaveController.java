@@ -1,8 +1,10 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.controllers;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerVisitor;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
 
-public abstract class SaveController extends AcceptorController {
+public abstract class SaveController extends AceptorController {
 
 	public SaveController(Session session) {
 		super(session);
@@ -19,7 +21,7 @@ public abstract class SaveController extends AcceptorController {
 	public abstract boolean exists(String readString);
 
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
+	public void accept(ControllerVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
 

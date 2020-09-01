@@ -2,15 +2,20 @@ package es.urjccode.mastercloudapps.adcs.mastermind.controllers.implementation;
 
 import java.util.List;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerImplementation;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.SessionImplementationDAO;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.StateValue;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.ExitController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.PlayController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.ProposalController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.RedoController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.UndoController;
-import es.urjccode.mastercloudapps.adcs.mastermind.models.Session;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
 
+
+@ControllerImplementation(StateValue.IN_GAME)
 public class PlayControllerImplementation extends PlayController {
 
 	private ProposalController proposalController;
@@ -21,7 +26,7 @@ public class PlayControllerImplementation extends PlayController {
 
 	private ExitController exitController;
 
-	PlayControllerImplementation(Session session) {
+	public PlayControllerImplementation(Session session, SessionImplementationDAO sessionImplementationDAO) {
 		super(session);
 		this.proposalController = new ProposalController(this.session);
 		this.undoController = new UndoController(this.session);

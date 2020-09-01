@@ -3,6 +3,7 @@ package es.urjccode.mastercloudapps.adcs.mastermind.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MementoAttribute;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
 public class ProposedCombination extends Combination {
@@ -40,4 +41,8 @@ public class ProposedCombination extends Combination {
 		return "ProposedCombination [colors=" + colors + "]";
 	}
 
+	@Override
+	public void initializeMemento(MementoAttribute mementoAttribute) {
+
+	}
 }

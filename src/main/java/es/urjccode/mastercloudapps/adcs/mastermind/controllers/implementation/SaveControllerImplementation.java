@@ -1,15 +1,18 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.controllers.implementation;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerImplementation;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.SessionImplementationDAO;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.StateValue;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.SaveController;
-import es.urjccode.mastercloudapps.adcs.mastermind.models.Session;
 import es.urjccode.mastercloudapps.adcs.mastermind.models.SessionImplementation;
-import es.urjccode.mastercloudapps.adcs.mastermind.models.DAO.SessionImplementationDAO;
 
+@ControllerImplementation(StateValue.SAVING)
 public class SaveControllerImplementation extends SaveController {
 
 	private SessionImplementationDAO sessionImplementationDAO;
 
-	SaveControllerImplementation(Session session, SessionImplementationDAO sessionImplementationDAO) {
+	public SaveControllerImplementation(Session session, SessionImplementationDAO sessionImplementationDAO) {
 		super(session);
 		this.sessionImplementationDAO = sessionImplementationDAO;
 	}

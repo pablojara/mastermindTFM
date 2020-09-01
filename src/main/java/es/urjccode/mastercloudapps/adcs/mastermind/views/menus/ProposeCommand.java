@@ -2,6 +2,7 @@ package es.urjccode.mastercloudapps.adcs.mastermind.views.menus;
 
 import java.util.List;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.PlayController;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
@@ -12,8 +13,8 @@ import es.urjccode.mastercloudapps.adcs.mastermind.views.models.ProposedCombinat
 
 class ProposeCommand extends Command {
 
-	ProposeCommand(PlayController playController) {
-		super(MessageView.PROPOSE_COMMAND.getMessage(), playController);
+	ProposeCommand(AceptorController aceptorController) {
+		super(MessageView.PROPOSE_COMMAND.getMessage(), aceptorController);
 	}
 
 	@Override

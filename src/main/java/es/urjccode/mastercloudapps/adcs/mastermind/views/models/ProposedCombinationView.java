@@ -5,15 +5,17 @@ import java.util.List;
 
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.GameController;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
-import es.urjccode.mastercloudapps.adcs.mastermind.views.models.ColorView;
-import es.urjccode.mastercloudapps.adcs.mastermind.utils.WithConsoleView;
+import es.urjccode.mastercloudapps.adcs.mastermind.utils.Console;
 
-public class ProposedCombinationView extends WithConsoleView {
+public class ProposedCombinationView {
+
+	private Console console;
 	
 	private GameController gameController;
 	
 	public ProposedCombinationView(GameController gameController) {
 		this.gameController = gameController;
+		this.console = new Console();
 	}
 	
 	void write(int i) {

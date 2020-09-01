@@ -1,9 +1,9 @@
 package es.urjccode.mastercloudapps.adcs.mastermind;
 
 
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.AcceptorController;
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.Logic;
-import es.urjccode.mastercloudapps.adcs.mastermind.views.View;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Logic;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.View;
 
 public abstract class Mastermind {
 	
@@ -19,7 +19,7 @@ public abstract class Mastermind {
 	protected abstract Logic createLogic();
 
 	protected void play() {
-		AcceptorController acceptorController;
+		AceptorController acceptorController;
 		do {
 			acceptorController = this.logic.getController();
 			if (acceptorController != null){

@@ -1,6 +1,10 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
-public class Result {
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MementoAttribute;
+
+import java.io.Serializable;
+
+public class Result extends MementoAttribute implements Serializable {
 
 	private int blacks = 0;
 
@@ -45,4 +49,8 @@ public class Result {
 		return "Result [blacks=" + blacks + ", whites=" + whites + "]";
 	}
 
+	@Override
+	public void initializeMemento(MementoAttribute mementoAttribute) {
+
+	}
 }

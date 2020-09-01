@@ -2,11 +2,14 @@ package es.urjccode.mastercloudapps.adcs.mastermind.controllers;
 
 import java.util.List;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerVisitor;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.models.SessionImplementation;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
 
-public abstract class GameController extends AcceptorController {
+public abstract class GameController extends AceptorController {
 
 	GameController(Session session) {
 		super(session);
@@ -24,7 +27,10 @@ public abstract class GameController extends AcceptorController {
 
 	public abstract boolean isLooser();
 
+	public int getWidth() {
+		return ((SessionImplementation)this.session).getWidth();
+	}
 	@Override
-	public abstract void accept(ControllersVisitor controllersVisitor);
-	
+	public abstract void accept(ControllerVisitor controllersVisitor);
+
 }

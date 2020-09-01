@@ -1,9 +1,11 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.models;
 
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
-import es.urjccode.mastercloudapps.adcs.mastermind.utils.WithConsoleView;
+import es.urjccode.mastercloudapps.adcs.mastermind.utils.Console;
 
-public class ColorView extends WithConsoleView{
+public class ColorView {
+
+	private Console console;
 
 	static final char[] INITIALS = { 'r', 'b', 'y', 'g', 'o', 'p' };
 
@@ -11,6 +13,7 @@ public class ColorView extends WithConsoleView{
 
 	public ColorView(Color color) {
 		this.color = color;
+		this.console = new Console();
 	}
 
 	static String allInitials() {

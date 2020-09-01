@@ -1,16 +1,26 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.StateValue;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.SubView;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.SubViewImplementation;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.StartController;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.menus.StartMenu;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.models.GameView;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.models.MessageView;
 
-class StartView {
 
-	void interact(StartController startController) {
+@SubViewImplementation(StateValue.INITIAL)
+public class StartView extends SubView {
+
+	public StartView(){
+		super();
+	}
+
+	public void interact(AceptorController aceptorController) {
 		MessageView.TITLE.writeln();
-		new StartMenu(startController).execute();
-		new GameView(startController).writeln();
+		new StartMenu(aceptorController).execute();
+		new GameView((StartController)aceptorController).writeln();
 	}
 
 }

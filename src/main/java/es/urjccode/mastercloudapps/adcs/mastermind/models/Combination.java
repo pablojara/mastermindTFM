@@ -1,11 +1,13 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MementoAttribute;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
-public abstract class Combination {
+public abstract class Combination extends MementoAttribute implements Serializable {
 	
 	private static final int WIDTH = 4;
 
