@@ -14,7 +14,7 @@ public class Logic {
 
     protected Map<StateValue, AceptorController> acceptorControllers;
 
-    protected Logic(Session session) {
+    public Logic(Session session) {
         this.session = session;
         this.acceptorControllers = new HashMap<StateValue, AceptorController>();
         SessionImplementationDAO sessionImplementationDAO = new SessionImplementationDAO((SessionImplementation) this.session);

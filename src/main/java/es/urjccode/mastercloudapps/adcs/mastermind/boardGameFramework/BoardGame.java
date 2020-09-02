@@ -1,31 +1,43 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.models.GameImplementation;
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.implementation.LogicImplementation;
-import es.urjccode.mastercloudapps.adcs.mastermind.models.SessionImplementation;
+import org.reflections.Reflections;
 
-class BoardGame {
+import java.lang.reflect.Constructor;
+import java.util.Set;
 
-    private View view;
+public class BoardGame {
 
-    private Logic logic;
+    protected View view;
 
-    private BoardGame()  {
+    protected Logic logic;
+
+    public BoardGame()  {
         this.view = new View();
-        this.logic = new LogicImplementation(new SessionImplementation(new GameImplementation()));
     }
 
-    private void play() {
+    public void play() {
         AceptorController acceptorController;
-		do {
+        do {
             acceptorController = this.logic.getController();
-			if (acceptorController != null)
-				this.view.interact(acceptorController);
-		} while (acceptorController != null);
+            if (acceptorController != null)
+                this.view.interact(acceptorController);
+        } while (acceptorController != null);
     }
 
-    public static void main(String[] args)  {
-        new BoardGame().play();
+
+    public static void main(String[] args) {
+        Reflections reflections = new Reflections("es.urjccode.mastercloudapps.adcs");
+        Set<Class<?>> executableGames = reflections.getTypesAnnotatedWith(Application.class);
+        try {
+            for (Class<?> executableGame : executableGames) {
+                Application annotation = executableGame.getAnnotation(Application.class);
+                Constructor constructor = executableGame.getConstructor();
+                BoardGame gameInstance = (BoardGame) constructor.newInstance();
+                gameInstance.play();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

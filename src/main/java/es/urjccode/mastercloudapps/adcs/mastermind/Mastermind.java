@@ -1,32 +1,18 @@
 package es.urjccode.mastercloudapps.adcs.mastermind;
 
-
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Application;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.BoardGame;
 import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Logic;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.View;
+import es.urjccode.mastercloudapps.adcs.mastermind.models.GameImplementation;
+import es.urjccode.mastercloudapps.adcs.mastermind.models.SessionImplementation;
 
-public abstract class Mastermind {
-	
-	private Logic logic;
-	
-	private View view;
-	
-	protected Mastermind() {
-		this.logic = this.createLogic();
-		this.view = new View();
-	}
-	
-	protected abstract Logic createLogic();
 
-	protected void play() {
-		AceptorController acceptorController;
-		do {
-			acceptorController = this.logic.getController();
-			if (acceptorController != null){
-				this.view.interact(acceptorController);
-			}
-		} while (acceptorController != null); 
+@Application
+public class Mastermind extends BoardGame {
+
+	public Mastermind() {
+		super();
+		this.logic = new Logic(new SessionImplementation(new GameImplementation()));
 	}
-	
+
 }
-
