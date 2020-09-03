@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MementoAttribute;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.memento.MementoAttribute;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
 public abstract class Combination extends MementoAttribute implements Serializable {

@@ -2,9 +2,9 @@ package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
 import java.util.List;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Registry;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.StateValue;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.memento.Registry;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.StateValue;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
 public class SessionImplementation extends Session {

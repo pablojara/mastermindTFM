@@ -1,7 +1,7 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.models;
 
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
-import es.urjccode.mastercloudapps.adcs.mastermind.utils.Console;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.utils.Console;
 
 public class ErrorView {
 

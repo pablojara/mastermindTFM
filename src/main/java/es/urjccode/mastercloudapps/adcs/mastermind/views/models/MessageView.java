@@ -1,6 +1,6 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.models;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.utils.Console;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.utils.Console;
 
 public enum MessageView {
 	ATTEMPTS("#attempts attempt(s): "),

@@ -1,6 +1,6 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MementoAttribute;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.memento.MementoAttribute;
 
 import java.io.Serializable;
 

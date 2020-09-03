@@ -1,7 +1,8 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.controllers;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerVisitor;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MVCInjection.ControllerVisitor;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.controllers.GameController;
 
 public abstract class StartController extends GameController {
 

@@ -1,6 +1,5 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.models;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Controller;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.GameController;
 
 class SecretCombinationView {

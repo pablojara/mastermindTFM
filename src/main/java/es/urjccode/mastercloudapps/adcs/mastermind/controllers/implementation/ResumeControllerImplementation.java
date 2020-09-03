@@ -1,10 +1,10 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.controllers.implementation;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerImplementation;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.SessionImplementationDAO;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.StateValue;
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.ResumeController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MVCInjection.ControllerImplementation;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.DAO.SessionImplementationDAO;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.StateValue;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.controllers.ResumeController;
 import es.urjccode.mastercloudapps.adcs.mastermind.models.SessionImplementation;
 
 @ControllerImplementation(StateValue.FINAL)

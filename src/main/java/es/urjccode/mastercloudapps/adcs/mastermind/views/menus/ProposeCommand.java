@@ -2,7 +2,9 @@ package es.urjccode.mastercloudapps.adcs.mastermind.views.menus;
 
 import java.util.List;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MVCInjection.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.menu.Command;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.menu.MenuCommand;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.PlayController;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
@@ -11,9 +13,10 @@ import es.urjccode.mastercloudapps.adcs.mastermind.views.models.GameView;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.models.MessageView;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.models.ProposedCombinationView;
 
-class ProposeCommand extends Command {
+@MenuCommand(PlayMenu.class)
+public class ProposeCommand extends Command {
 
-	ProposeCommand(AceptorController aceptorController) {
+	public ProposeCommand(AceptorController aceptorController) {
 		super(MessageView.PROPOSE_COMMAND.getMessage(), aceptorController);
 	}
 
@@ -21,13 +24,13 @@ class ProposeCommand extends Command {
 	protected void execute() {
 		Error error;
 		do {
-			List<Color> colors = new ProposedCombinationView((PlayController)this.acceptorController).read();
-			error = ((PlayController)this.acceptorController).addProposedCombination(colors);
+			List<Color> colors = new ProposedCombinationView((PlayController)this.aceptorController).read();
+			error = ((PlayController)this.aceptorController).addProposedCombination(colors);
 			if (error != null) {
 				new ErrorView(error).writeln();
 			}
 		} while (error != null);
-		new GameView((PlayController)this.acceptorController);
+		new GameView((PlayController)this.aceptorController);
 	}
 
 	@Override

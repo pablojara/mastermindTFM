@@ -2,15 +2,15 @@ package es.urjccode.mastercloudapps.adcs.mastermind.controllers.implementation;
 
 import java.util.List;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.ControllerImplementation;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Session;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.SessionImplementationDAO;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.StateValue;
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.ExitController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MVCInjection.ControllerImplementation;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.Session;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.DAO.SessionImplementationDAO;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.StateValue;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.controllers.ExitController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.PlayController;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.ProposalController;
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.RedoController;
-import es.urjccode.mastercloudapps.adcs.mastermind.controllers.UndoController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.controllers.RedoController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.controllers.UndoController;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
 
@@ -18,13 +18,7 @@ import es.urjccode.mastercloudapps.adcs.mastermind.types.Error;
 @ControllerImplementation(StateValue.IN_GAME)
 public class PlayControllerImplementation extends PlayController {
 
-	private ProposalController proposalController;
 
-	private UndoController undoController;
-
-	private RedoController redoController;
-
-	private ExitController exitController;
 
 	public PlayControllerImplementation(Session session, SessionImplementationDAO sessionImplementationDAO) {
 		super(session);

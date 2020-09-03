@@ -3,7 +3,7 @@ package es.urjccode.mastercloudapps.adcs.mastermind.models;
 import java.util.Collections;
 import java.util.Random;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MementoAttribute;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.memento.MementoAttribute;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
 public class SecretCombination extends Combination {

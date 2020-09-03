@@ -1,18 +1,21 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.menus;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MVCInjection.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.menu.Command;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.menu.MenuCommand;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.StartController;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.models.MessageView;
 
-class NewGameCommand extends Command {
+@MenuCommand(StartMenu.class)
+public class NewGameCommand extends Command {
 
-	protected NewGameCommand(AceptorController aceptorController) {
+	public NewGameCommand(AceptorController aceptorController) {
 		super(MessageView.NEWGAME_COMMAND.getMessage(), aceptorController);
 	}
 
 	@Override
 	protected void execute() {
-		((StartController) this.acceptorController).start();
+		((StartController) this.aceptorController).start();
 	}
 
 	@Override

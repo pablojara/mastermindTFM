@@ -1,18 +1,21 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.views.menus;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MVCInjection.AceptorController;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.menu.Command;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.menu.MenuCommand;
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.PlayController;
 import es.urjccode.mastercloudapps.adcs.mastermind.views.models.MessageView;
 
-class ExitCommand extends Command {
+@MenuCommand(PlayMenu.class)
+public class ExitCommand extends Command {
 
-	protected ExitCommand(AceptorController aceptorController) {
+	public ExitCommand(AceptorController aceptorController) {
 		super(MessageView.EXIT_COMMAND.getMessage(), aceptorController);
 	}
 
 	@Override
 	protected void execute() {
-		((PlayController) this.acceptorController).next();	
+		((PlayController) this.aceptorController).next();
 	}
 
 	@Override

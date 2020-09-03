@@ -5,7 +5,7 @@ import java.util.List;
 
 import es.urjccode.mastercloudapps.adcs.mastermind.controllers.GameController;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
-import es.urjccode.mastercloudapps.adcs.mastermind.utils.Console;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.utils.Console;
 
 public class ProposedCombinationView {
 

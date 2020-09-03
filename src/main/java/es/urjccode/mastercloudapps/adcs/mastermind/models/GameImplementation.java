@@ -1,8 +1,7 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.DAOField;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.Game;
-import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.MementoField;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.DAO.DAOField;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.Game;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
 import java.util.ArrayList;
