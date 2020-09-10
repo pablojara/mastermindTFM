@@ -1,6 +1,7 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
 import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.DAO.DAOField;
+import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.memento.MementoField;
 import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.models.Game;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
@@ -12,37 +13,38 @@ public class GameImplementation extends Game {
     private static final int MAX_LONG = 10;
 
     @DAOField("secretCombination")
-    //@MementoField("secretCombination")
+    @MementoField("secretCombination")
     private SecretCombination secretCombination;
 
     @DAOField("proposedCombinations")
-    //@MementoField("proposedCombinations")
-    private List<ProposedCombination> proposedCombinations;
+    @MementoField("proposedCombinations")
+    private ProposedCombinations proposedCombinations;
 
     @DAOField("results")
-    //@MementoField("results")
-    private List<Result> results;
+    @MementoField("results")
+    private Results results;
 
     @DAOField("attempts")
-    //@MementoField("attempts")
-    private int attempts;
+    @MementoField("attempts")
+    private Attempts attempts;
 
     public GameImplementation() {
         this.secretCombination = new SecretCombination();
+        this.attempts = new Attempts();
         this.clear();
     }
 
     void clear() {
-        this.proposedCombinations = new ArrayList<ProposedCombination>();
-        this.results = new ArrayList<Result>();
-        this.attempts = 0;
+        this.proposedCombinations = new ProposedCombinations();
+        this.results = new Results();
+        this.attempts.attempts = 0;
     }
 
     void addProposedCombination(List<Color> colors) {
         ProposedCombination proposedCombination = new ProposedCombination(colors);
         this.proposedCombinations.add(proposedCombination);
         this.results.add(this.secretCombination.getResult(proposedCombination));
-        this.attempts++;
+        this.attempts.attempts++;
     }
 
     @Override
@@ -56,7 +58,7 @@ public class GameImplementation extends Game {
     }
 
     public void setAttempts(int attempts) {
-        this.attempts = attempts;
+        this.attempts.attempts = attempts;
     }
 
     public void addProposedCombination(ProposedCombination proposedCombination) {
@@ -68,14 +70,14 @@ public class GameImplementation extends Game {
     }
 
     boolean isLooser() {
-        return this.attempts == GameImplementation.MAX_LONG;
+        return this.attempts.attempts == GameImplementation.MAX_LONG;
     }
 
     boolean isWinner() {
-        if (this.attempts == 0) {
+        if (this.attempts.attempts == 0) {
             return false;
         }
-        return this.results.get(this.attempts - 1).isWinner();
+        return this.results.get(this.attempts.attempts - 1).isWinner();
     }
 
     int getWidth() {
@@ -83,7 +85,7 @@ public class GameImplementation extends Game {
     }
 
     public int getAttempts() {
-        return this.attempts;
+        return this.attempts.attempts;
     }
 
     List<Color> getColors(int position) {

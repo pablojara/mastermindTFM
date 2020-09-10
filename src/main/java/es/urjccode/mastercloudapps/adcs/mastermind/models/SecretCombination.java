@@ -1,14 +1,17 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.models;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 import es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.memento.MementoAttribute;
 import es.urjccode.mastercloudapps.adcs.mastermind.types.Color;
 
-public class SecretCombination extends Combination {
+public class SecretCombination extends Combination implements Serializable {
 
-	SecretCombination() {
+	public SecretCombination() {
 		for(Color color: Color.values()) {
 			this.colors.add(color);
 		}
@@ -43,6 +46,12 @@ public class SecretCombination extends Combination {
 
 	@Override
 	public void initializeMemento(MementoAttribute mementoAttribute) {
+			SecretCombination tmpCombination = (SecretCombination) mementoAttribute;
+			List<Color> tmpColors = new ArrayList<Color>();
+			for(Color color: tmpCombination.colors){
+				tmpColors.add(color);
+			}
+			this.colors = tmpColors;
 
 	}
 }

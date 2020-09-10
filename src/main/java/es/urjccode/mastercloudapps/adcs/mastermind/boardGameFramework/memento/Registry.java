@@ -16,6 +16,8 @@ public class Registry {
         this.mementoList = new ArrayList<>();
         try {
             this.mementoList.add(undoCount, this.originator.createMemento());
+            System.out.println("First Memento saved." + this.mementoList.toString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -28,6 +30,7 @@ public class Registry {
         }
         this.undoCount = 0;
         try {
+            System.out.println(" Memento saved." + this.mementoList.toString());
             this.mementoList.add(this.undoCount, this.originator.createMemento());
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,7 +40,9 @@ public class Registry {
     public void undo(Originator originator)  {
         this.undoCount++;
         try {
+            System.out.println("Pre undo." + this.mementoList.toString());
             originator.restore(this.mementoList.get(this.undoCount));
+            System.out.println("Post undo." + this.mementoList.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

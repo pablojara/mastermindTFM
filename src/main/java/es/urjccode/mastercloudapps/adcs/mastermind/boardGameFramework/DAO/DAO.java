@@ -1,6 +1,6 @@
 package es.urjccode.mastercloudapps.adcs.mastermind.boardGameFramework.DAO;
 
-interface DAO {
+public interface DAO {
 
 	void save();
 
